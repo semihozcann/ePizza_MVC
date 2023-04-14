@@ -1,0 +1,24 @@
+﻿@model ProductTypeAddViewModel
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add</h1>
+
+<div class="container">
+    <form asp-controller="ProductTypes" asp-action="Add" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" id="Name" type="text" class="form-control" placeholder="Ürün Tipi Adı" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn badge-primary" type="submit" value="Add">Ekle</button>
+            @ViewBag.ProductTypeResultMessage
+
+        </div>
+    </form>
+</div>

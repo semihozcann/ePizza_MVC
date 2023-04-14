@@ -1,0 +1,53 @@
+﻿@model ProductTypeListViewModel
+
+@{
+    ViewData["Title"] = "GetAllProductTypes";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAllProductTypes</h1>
+
+<div class="container">
+
+    <div id="addButtonTable">
+        <table>
+            <tr>
+                <td>Ürün tipi eklemek için ekle butonuna tıklayınız</td>
+                <td>:</td>
+                <td> <a asp-area="Admin" asp-controller="ProductTypes" asp-action="Add" id="AddButton">Ürün Tipi Ekle</a></td>
+            </tr>
+        </table>
+    </div>
+
+    @if (Model != null)
+    {
+        <div>
+            <table class="table" id="ListTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Ürün Tipi Adı</td>
+                        <td>Güncelle</td>
+                        <td>Sil</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var productType in Model.ProductTypeListDto.ProductTypes)
+                    {
+                        <tr>
+                            <td>@productType.Id</td>
+                            <td>@productType.Name</td>
+                            <td><a href="/Admin/ProductTypes/Update/@productType.Id" id="ListTableButton">Güncelle</a></td>
+                            <td><a href="/Admin/ProductTypes/Delete/@productType.Id" id="ListTableButton">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <p>Hiç Veri Bulunamadı</p>
+    }
+</div>

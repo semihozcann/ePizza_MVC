@@ -1,0 +1,152 @@
+﻿
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+
+/*Navbar Start*/
+
+.navbar {
+    align-items: center;
+    padding-bottom: 0%;
+    width: 98%;
+    margin: auto;
+}
+
+#navbar {
+    background-color: #4c5870;
+    margin: auto;
+    border-radius: 20px;
+    min-height: 80px;
+}
+
+.navbar-brand {
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 6px 12px;
+    border-radius: 25px;
+    color: whitesmoke;
+}
+
+
+#navbar a {
+    color: white;
+}
+
+#navbar .dropdown-menu {
+    background-color: #4c5870;
+}
+
+/*Navbar End*/
+
+
+/*Body Start*/
+
+#adminBodyDiv {
+    background-color: #ebedec;
+    width: 98%;
+    min-height: 800px;
+    margin: auto;
+    padding-bottom: 0;
+    border-radius: 20px;
+}
+
+#AdminLeftSideBarDiv {
+    background-color: #4c5870;
+    min-height: 800px;
+    border-radius: 20px;
+    border: 3px solid #4c5870;
+}
+
+    #AdminLeftSideBarDiv a, h2 {
+        background-color: #4c5870;
+        color: white;
+    }
+
+
+
+
+#profilImage {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+
+#AdminMainBodyDiv {
+    background-color: #ebedec;
+    min-height: 800px;
+    border-radius: 20px;
+    border: 5px solid #4c5870;
+}
+
+#AdminLeftSideBarButton {
+    background-color: #4c5870;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/*Body End*/
+
+
+/*Footer Start*/
+
+#footerDiv {
+    border-radius: 20px;
+    padding: 0%;
+    background-color: #4c5870;
+    width: 98%;
+    margin: auto;
+}
+
+    #footerDiv div ul li a, #footerDiv h5 {
+        background-color: #4c5870;
+        color: white;
+    }
+
+.text-muted {
+    color: white !important;
+}
+
+.py-5 {
+    padding-top: 0 !important;
+    padding-bottom: 1rem !important;
+}
+
+.my-5 {
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+
+
+/*Footer End*/
+
+
+
+

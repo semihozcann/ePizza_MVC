@@ -1,0 +1,41 @@
+﻿@model ProductListViewModel
+
+@{
+    ViewData["Title"] = "GetAllProducts";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container pb-4">
+    <div class="row pt-4">
+        <h2 class="col-sm-12 mb-4" id="heading">Pizza, Tatlılar, İçecekler</h2>
+    </div>
+    <div class="row" id="mainCartDiv">
+        @foreach (var product in Model.ProductListDto.Products)
+        {
+            <div id="productCartDiv">
+                <div id="cartDiv">
+                    <img class="card-img-top" src="@product.ImageUrl" alt="image" style="width:100%" id="productImage">
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Name <span class="float-right font-20">@product.UnitPrice.ToString() ₺</span></h4>
+                        <p class="card-text">@product.Description</p>
+                        <p>
+                            <span class="pt-1 d-inline-block"> Açıklama: @product.Description</span>
+                            <span class="float-right font-20">
+                                <a href="javascript:void(0)" onclick="AddToCart('@product.Id','@product.Name','@product.UnitPrice',1)" class="btn btn-outline-primary">Sepete Ekle</a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="toast fade hide" data-autohide="false" id="toastCart">
+    <div class="toast-header">
+        <strong class="mr-auto text-primary">Notification</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">×</button>
+    </div>
+    <div class="toast-body"></div>
+</div>

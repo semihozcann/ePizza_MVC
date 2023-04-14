@@ -1,0 +1,41 @@
+﻿
+
+#ListTable {
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 3px solid #4c5870;
+}
+
+    #ListTable thead {
+        font-size: large;
+        font-weight: 600;
+    }
+
+    #ListTable td {
+        border: 1px solid #4c5870;
+    }
+
+#ListTableButton {
+    background-color: #4c5870;
+    margin: auto;
+    padding: 5px;
+}
+
+#AddButton {
+    background-color: #4c5870;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#addButtonTable {
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 3px solid #4c5870;
+    max-width: 500px;
+    min-height: 50px;
+}
+
+    #addButtonTable td {
+        padding-top: 12px;
+    }

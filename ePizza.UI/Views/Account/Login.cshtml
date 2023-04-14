@@ -1,0 +1,38 @@
+﻿@model ePizza.UI.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+@if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+{
+    <div class="text-danger">
+        <p>@ViewBag.Error</p>
+    </div>
+}
+
+
+<hr />
+<div class="row" >
+    <div class="col-md-4" id="loginMainDiv">
+        <div id="loginTitleDiv">
+            <h4>Giriş Yap</h4>
+        </div>
+        <form asp-action="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">E-Posta Adresi</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Şifre</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Giriş Yap" class="btn btn-primary" />
+                &nbsp; <a asp-action="SignUp" class="btn btn-warning">Kayıt Ol</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ePizza.WebUI</title>
+    @await Html.PartialAsync("_AdminLayoutCssPartial")
+
+</head>
+
+<body>
+
+    <partial name="_Header" />
+
+    <div class="row" id="adminBodyDiv">
+        <div class="col-sm-2" id="AdminLeftSideBarDiv">
+            <partial name="_LeftSideBar" />
+        </div>
+        <div class="col-sm-10" id="AdminMainBodyDiv">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+
+    <partial name="_Footer" />
+
+    @await Html.PartialAsync("_AdminLayoutJsPartial");
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

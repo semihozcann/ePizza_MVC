@@ -1,0 +1,41 @@
+﻿@model ProductUpdateViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update</h1>
+
+<div class="container">
+    <form asp-controller="Products" asp-action="Update" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" id="Name" type="text" class="form-control" placeholder="Ürün Adı" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            @Html.DropDownListFor(x=>x.CategoryId, (List<SelectListItem>)Model.CategoriesForDr, new { @class = "form-control"})
+        </div>
+        <div class="form-group">
+            @Html.DropDownListFor(x=>x.ProductTypeId, (List<SelectListItem>)Model.ProductTypesForDr, new { @class = "form-control"})
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" id="Description" type="text" class="form-control" placeholder="Ürün Açıklaması" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitPrice" class="control-label"></label>
+            <input asp-for="UnitPrice" id="UnitPrice" type="number" name="UnitPrice" class="form-control" />
+            <span asp-validation-for="UnitPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn badge-primary" type="submit" value="Update" >Güncelle</button>
+            @ViewBag.ProductResultMessage
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,62 @@
+﻿@model ProductListViewModel
+
+
+@{
+    ViewData["Title"] = "GetAllProducts";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAllProducts</h1>
+
+<div class="container">
+
+    <div id="addButtonTable">
+        <table>
+            <tr>
+                <td>Ürün eklemek için ekle butonuna tıklayınız</td>
+                <td>:</td>
+                <td> <a asp-area="Admin" asp-controller="Products" asp-action="Add" id="AddButton">Ürün Ekle</a></td>
+            </tr>
+        </table>
+    </div>
+
+    @if (Model !=null)
+    {
+        <div>
+            <table class="table" id="ListTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Ürün Adı</td>
+                        <td>Kategorisi</td>
+                        <td>Ürün Tipi</td>
+                        <td>Açıklaması</td>
+                        <td>Fiyatı</td>
+                        <td>Güncelle</td>
+                        <td>Sil</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.ProductListDto.Products)
+                    {
+                        <tr>
+                            <td>@product.Id</td>
+                            <td>@product.Name</td>
+                            <td>@product.Category.Name</td>
+                            <td>@product.ProductType.Name</td>
+                            <td>@product.Description</td>
+                            <td>@product.UnitPrice</td>
+                            <td><a href="/Admin/Products/Update/@product.Id" id="ListTableButton">Güncelle</a></td>
+                            <td><a href="/Admin/Products/Delete/@product.Id" id="ListTableButton">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <p>Hiç Veri Bulunamadı</p>
+    }
+</div>

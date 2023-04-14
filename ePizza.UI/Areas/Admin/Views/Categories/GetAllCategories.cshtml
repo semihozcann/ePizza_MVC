@@ -1,0 +1,55 @@
+﻿@model CategoryListViewModel
+
+@{
+    ViewData["Title"] = "GetAllCategories";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAllCategories</h1>
+
+<div class="container">
+
+    <div id="addButtonTable">
+        <table>
+            <tr>
+                <td>Kategori eklemek için ekle butonuna tıklayınız</td>
+                <td>:</td>
+                <td> <a asp-area="Admin" asp-controller="Categories" asp-action="Add" id="AddButton">Kategori Ekle</a></td>
+            </tr>
+        </table>
+    </div>
+
+    @if (Model !=null)
+    {
+        <div>
+            <table class="table" id="ListTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Kategori Adı</td>
+                        <td>Açıklaması</td>
+                        <td>Güncelle</td>
+                        <td>Sil</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in Model.CategoryListDto.Categories)
+                    {
+                        <tr>
+                            <td>@category.Id</td>
+                            <td>@category.Name</td>
+                            <td>@category.Description</td>
+                            <td><a href="/Admin/Categories/Update/@category.Id" id="ListTableButton">Güncelle</a></td>
+                            <td><a href="/Admin/Categories/Delete/@category.Id" id="ListTableButton">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <p>Hiç Veri Bulunamadı</p>
+    }
+</div>
